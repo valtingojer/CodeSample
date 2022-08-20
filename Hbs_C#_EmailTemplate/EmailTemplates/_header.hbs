@@ -1,0 +1,86 @@
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;border-color:transparent;font-family:'Inter',sans-serif;background-color:#EFF0F4;">
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;border-color:transparent;">
+                <tr border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;">
+                    <td style="height:100px;"></td>
+                    <td style="height:100px;"></td>
+                    <td style="height:100px;"></td>
+                </tr>
+                <tr border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;">
+                    <td border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;"></td>
+                    <td width="300" style="text-align:center;">
+                        {{#if HeaderLogoImage}}
+                            {{#if HeaderLogoLink}}
+                                <a href="{{HeaderLogoLink}}" target="_blank" style="text-decoration: none;"></a>
+                            {{/if}}
+
+                            <img src="{{HeaderLogoImage}}" style="width:300px;" />
+                            
+                            {{#if HeaderLogoLink}}
+                                </a>
+                            {{/if}}
+                        {{/if}}
+                    </td>
+                    <td border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;"></td>
+                </tr>
+                {{#unless HasHeaderText}}
+                    <tr border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;">
+                        <td style="height:100px;"></td>
+                        <td style="height:100px;"></td>
+                        <td style="height:100px;"></td>
+                    </tr>
+                {{/unless}}
+            </table>
+
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+
+            {{#if HasHeaderText}}
+
+                <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;border-color:transparent;">
+
+                    {{#if HeaderLogoTitle}}
+                        <tr border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;">
+                            <td style="text-align: center;">
+                                <h1 style="font-family:'Inter',sans-serif;color:#2C2C2C;font-size:36px;font-weight:bold;">{{HeaderLogoTitle}}</h1>
+                            </td>
+                        </tr>
+                    {{/if}}
+                    {{#if HeaderLogoSubtitle}}
+                        <tr border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;">
+                            <td style="text-align: center;">
+                                <h2 style="font-family:'Inter',sans-serif;color:#2C2C2C;font-size:22px;font-weight:bold;">{{HeaderLogoSubtitle}}</h2>
+                            </td>
+                        </tr>
+                    {{/if}}
+                    {{#if HeaderLogoText}}
+                        <tr border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;">
+                            <td style="text-align: center;">
+                                <p style="font-family:'Inter',sans-serif;color:#2C2C2C;font-size:14px;">{{HeaderLogoText}}</p>
+                            </td>
+                        </tr>
+                    {{/if}}
+                    <tr border="0" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-color:transparent;"><td style="height:100px;"></td></tr>
+                </table>
+
+            {{/if}}
+
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+
+
