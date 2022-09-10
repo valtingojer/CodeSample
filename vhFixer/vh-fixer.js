@@ -25,7 +25,7 @@ var vhFixer = (function () {
 
         style.innerHTML = styleContent;
 
-        document.head.appendChild(style);
+        document.head.prepend(style);
     }
 
     var init = function () {
