@@ -4,8 +4,8 @@ This code sample provides an configured webpack with babel configured to a large
 
 The index html sample contains IE10 tested functions with
 
-[x] anonymousArrowFunction();
-[x] asyncFunction();
-[x] optionalChainingFunction();
-[x] destructuringFunction();
-[x] customClass();
+- [x] anonymousArrowFunction();
+- [x] asyncFunction();
+- [x] optionalChainingFunction();
+- [x] destructuringFunction();
+- [x] customClass();
