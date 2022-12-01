@@ -1,0 +1,14 @@
+$blue: blue;
+$bg: yellowgreen;
+
+body {
+  background-color: $bg;
+  color: $blue;
+  transition: all 0.5s ease;
+}
+
+@media (min-resolution: 2dppx) {
+  .image {
+    background-color: gray;
+  }
+}
