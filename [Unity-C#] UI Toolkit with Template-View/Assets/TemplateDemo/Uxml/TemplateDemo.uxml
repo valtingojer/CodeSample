@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/TemplateDemo/Uss/TemplateDemo.uss?fileID=7433441132597879392&amp;guid=157f16008a966bd418911eb2124eaac7&amp;type=3#TemplateDemo" />
+    <ui:VisualElement name="container" style="flex-grow: 1;">
+        <ui:VisualElement name="header" class="header">
+            <ui:Label text="Dynamic Title" display-tooltip-when-elided="true" name="title" style="height: 98px; justify-content: flex-start; align-items: stretch; -unity-text-align: middle-left; overflow: hidden; width: 80%;" />
+            <ui:Button text="X" display-tooltip-when-elided="true" name="closeButton" class="closeButton" />
+        </ui:VisualElement>
+        <ui:VisualElement name="body" class="body" />
+        <ui:VisualElement name="footer" class="footer">
+            <ui:Button text="OK" display-tooltip-when-elided="true" name="confirmButton" class="confirmButton" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

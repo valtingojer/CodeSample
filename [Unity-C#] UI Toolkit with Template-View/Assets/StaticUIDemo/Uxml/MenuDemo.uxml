@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Toolkit/Uss/MenuDemo.uss?fileID=7433441132597879392&amp;guid=3e6985e714a523d4e9fd9a88e8204c31&amp;type=3#MenuDemo" />
+    <ui:VisualElement name="Container" style="width: 100%; height: 100%; flex-direction: column; align-items: center; padding-left: 32px; padding-right: 32px; padding-top: 32px; padding-bottom: 32px;">
+        <ui:VisualElement name="LogoContainer" style="width: 70%; height: 30%; justify-content: flex-start; align-items: center; padding-left: 36px; padding-right: 36px; padding-top: 36px; padding-bottom: 36px;">
+            <ui:VisualElement name="Logo" class="menu-logo" />
+        </ui:VisualElement>
+        <ui:VisualElement name="MenuContainer" style="width: 70%; height: auto; padding-left: 36px; padding-right: 36px; padding-top: 36px; padding-bottom: 36px; flex-grow: 1; flex-shrink: 1;">
+            <ui:VisualElement name="MenuContent" class="h-100 w-100" style="align-items: center; justify-content: center;">
+                <ui:Label text="menu" display-tooltip-when-elided="true" class="menu-label" />
+                <ui:Button text="start" display-tooltip-when-elided="true" name="start" class="menu-button" />
+                <ui:Button text="settings" display-tooltip-when-elided="true" name="settings" class="menu-button" />
+                <ui:Button text="exit" display-tooltip-when-elided="true" name="exit" class="last menu-button" />
+                <ui:VisualElement name="optionsContainer" class="w-100" style="height: 294px; flex-direction: column; flex-wrap: wrap;">
+                    <ui:Slider picking-mode="Ignore" label="volume" value="42" high-value="100" name="volumeSlider" style="flex-direction: column; align-items: center;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="FooterContainer" style="width: 100%; height: 15%;" />
+    </ui:VisualElement>
+</ui:UXML>
