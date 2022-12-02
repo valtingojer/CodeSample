@@ -11,8 +11,8 @@ namespace EditorStronglyTyped
         public static string OutputFolder()
         {
             var currentPath = Application.dataPath;
-            var editorSetting = EditorPrefs.GetString("StronglyTypedOutputFolder").Replace($"{currentPath}/", "").Replace(currentPath, "");
-            var menuSettings = Menu.OutputFolder.Replace($"{currentPath}/", "").Replace(currentPath, "");
+            var editorSetting = GetSettings("OutputFolder");
+            var menuSettings = Menu.OutputFolder;
             var result = string.IsNullOrEmpty(editorSetting) ? menuSettings : editorSetting;
             return result;
         }
@@ -111,6 +111,37 @@ namespace EditorStronglyTyped
             if (char.IsDigit(result[0]))
                 result = $"_{result}";
             return result;
+        }
+
+        public static void SaveSettings(string key, string value)
+        {
+            //save settings at Editor/StronglyTyped/Settings/key.data
+            string projectPath = Application.dataPath;
+            string folderPath = Path.Combine(projectPath, "Editor", "StronglyTyped", "Settings");
+            string[] subFolders = new string[] { "Editor", "StronglyTyped", "Settings" };
+            string filePath = Path.Combine(folderPath, $"{key}.data");
+            var tempPath = projectPath;
+            foreach (string subFolder in subFolders)
+            {
+                tempPath = Path.Combine(tempPath, subFolder);
+                if (!Directory.Exists(tempPath))
+                {
+                    Directory.CreateDirectory(tempPath);
+                }
+            }
+            File.WriteAllText(filePath, value);
+        }
+        public static string GetSettings(string key)
+        {
+            //get settings at Editor/StronglyTyped/Settings/key.data
+            string projectPath = Application.dataPath;
+            string folderPath = Path.Combine(projectPath, "Editor", "StronglyTyped", "Settings");
+            string filePath = Path.Combine(folderPath, $"{key}.data");
+            if (File.Exists(filePath))
+            {
+                return File.ReadAllText(filePath);
+            }
+            return string.Empty;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace EditorStronglyTyped
         private static string OutputFileName() => "Axes.cs";
         private static string FullQualifiedNamespace() => "StronglyTyped";
 
+        [UnityEditor.Callbacks.DidReloadScripts]
         public static void Refresh()
         {
             string filePath = Helper.GetFilePath(OutputFileName());

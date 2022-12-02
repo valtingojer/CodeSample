@@ -10,6 +10,7 @@ namespace EditorStronglyTyped
         private static string OutputFileName() => "Tags.cs";
         private static string FullQualifiedNamespace() => "StronglyTyped";
 
+        [UnityEditor.Callbacks.DidReloadScripts]
         public static void Refresh()
         {
             string filePath = Helper.GetFilePath(OutputFileName());

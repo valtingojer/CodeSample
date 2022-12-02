@@ -11,6 +11,7 @@ namespace EditorStronglyTyped
         private static string OutputFileName() => "Scenes.cs";
         private static string FullQualifiedNamespace() => "StronglyTyped";
 
+        [UnityEditor.Callbacks.DidReloadScripts]
         public static void Refresh()
         {
             string filePath = Helper.GetFilePath(OutputFileName());

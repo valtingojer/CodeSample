@@ -38,10 +38,10 @@ namespace EditorStronglyTyped
             if (string.IsNullOrEmpty(newOutputFolder))
                 return;
 
-            OutputFolder = newOutputFolder;
+            var currentPath = Application.dataPath;
+            OutputFolder = newOutputFolder.Replace($"{currentPath}/", "").Replace(currentPath, "");
 
-            //save the output foder at the project settings
-            EditorPrefs.SetString("StronglyTypedOutputFolder", newOutputFolder);
+            Helper.SaveSettings("OutputFolder", OutputFolder);
         }
     }
 }
