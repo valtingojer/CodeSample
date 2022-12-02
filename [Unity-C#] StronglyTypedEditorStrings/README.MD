@@ -35,3 +35,30 @@ More Info at
 https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.html
 
 https://docs.unity3d.com/Manual/BuildSettings.html
+
+# Use Cases
+
+using StronglyTyped;
+
+- bool MatchTag = gameObject.CompareTag(Tags.Player);
+- bool isSameLayer = gameObject.layer == Layers.DefaultInt;
+- var horizontalAxis = Input.GetAxis(Axes.Horizontal);
+- SceneManager.LoadScene(Scenes.SampleSceneInt);
+
+# Sample of generated properties
+
+public static string Default
+{
+get
+{
+return "Default";
+}
+}
+
+public static int DefaultInt
+{
+get
+{
+return 0;
+}
+}
