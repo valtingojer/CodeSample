@@ -24,19 +24,34 @@ namespace EditorStronglyTyped
                 using (var streamWriter = new StreamWriter(memoryStream))
                 {
                     Helper.WriteFileIntro(MethodBase.GetCurrentMethod(), streamWriter);
-                    Helper.WriteFileHeader(streamWriter, FullQualifiedNamespace(), nameof(Layers));
+                    Helper.WriteFileNamespace(streamWriter, FullQualifiedNamespace(), nameof(Layers));
+                    Helper.WriteFileClass(streamWriter, nameof(Layers));
 
                     for (int i = 0; i < 32; i++)
                     {
                         string layerName = LayerMask.LayerToName(i);
                         if (!string.IsNullOrEmpty(layerName))
                         {
-                            Helper.WriteFileLine(streamWriter, layerName);
+                            Helper.WriteFilePropertyLine(streamWriter, layerName);
                             Helper.WriteFileIntLine(streamWriter, $"{layerName}Int", i);
                         }
                     }
 
-                    Helper.WriteFileFooter(streamWriter);
+                    Helper.WriteCloseFileClass(streamWriter);
+
+                    Helper.WriteFileEnum(streamWriter, $"{nameof(Layers)}Enum");
+                    for (int i = 0; i < 32; i++)
+                    {
+                        string layerName = LayerMask.LayerToName(i);
+                        if (!string.IsNullOrEmpty(layerName))
+                        {
+                            Helper.WriteFileEnumLine(streamWriter, layerName, i);
+                        }
+                    }
+                    Helper.WriteCloseFileEnum(streamWriter);
+
+
+                    Helper.WriteCloseFileNamespace(streamWriter);
                 }
 
                 bool areFilesDifferent = true;

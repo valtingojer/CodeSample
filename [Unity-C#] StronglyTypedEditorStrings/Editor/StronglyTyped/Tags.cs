@@ -24,12 +24,22 @@ namespace EditorStronglyTyped
                 using (var streamWriter = new StreamWriter(memoryStream))
                 {
                     Helper.WriteFileIntro(MethodBase.GetCurrentMethod(), streamWriter);
-                    Helper.WriteFileHeader(streamWriter, FullQualifiedNamespace(), nameof(Tags));
+                    Helper.WriteFileNamespace(streamWriter, FullQualifiedNamespace(), nameof(Tags));
+                    Helper.WriteFileClass(streamWriter, nameof(Tags));
 
                     foreach (var tag in UnityEditorInternal.InternalEditorUtility.tags)
-                        Helper.WriteFileLine(streamWriter, tag);
+                        Helper.WriteFilePropertyLine(streamWriter, tag);
 
-                    Helper.WriteFileFooter(streamWriter);
+                    Helper.WriteCloseFileClass(streamWriter);
+
+                    Helper.WriteFileEnum(streamWriter, $"{nameof(Tags)}Enum");
+                    for (int i = 0; i < UnityEditorInternal.InternalEditorUtility.tags.Length; i++)
+                        Helper.WriteFileEnumLine(streamWriter, UnityEditorInternal.InternalEditorUtility.tags[i], i);
+                    Helper.WriteCloseFileEnum(streamWriter);
+
+
+
+                    Helper.WriteCloseFileNamespace(streamWriter);
                 }
 
                 bool areFilesDifferent = true;

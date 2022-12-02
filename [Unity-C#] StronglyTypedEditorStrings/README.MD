@@ -12,6 +12,23 @@ The code generation occurs at UnityEditor.Callbacks.DidReloadScripts
 
 Also it creates a custom menu called StronglyTyped, where you can force the generation.
 
+# Outputs
+
+- [x] Properties are generated as static and get only
+- Axes.your_axis
+- Layers.your_layer
+- Scenes.your_scene
+- SortingLayers.your_sorting_layer
+- Tags.your_tag
+- [x] Enums are generated as well
+- AxesEnum.your_axis
+- LayersEnum.your_layer
+- ScenesEnum.your_scene
+- SortingLayersEnum.your_sorting_layer
+- TagsEnum.your_tag
+
+Enums are built with string = integer key pair, the string is the property name and integer is the property value, not having int value it uses the index as value.
+
 # Menu Options
 
 - Refresh all

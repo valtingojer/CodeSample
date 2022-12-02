@@ -26,7 +26,8 @@ namespace EditorStronglyTyped
                 using (var streamWriter = new StreamWriter(memoryStream))
                 {
                     Helper.WriteFileIntro(MethodBase.GetCurrentMethod(), streamWriter);
-                    Helper.WriteFileHeader(streamWriter, FullQualifiedNamespace(), nameof(Axes));
+                    Helper.WriteFileNamespace(streamWriter, FullQualifiedNamespace(), nameof(Axes));
+                    Helper.WriteFileClass(streamWriter, nameof(Axes));
 
                     var inputManager = AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/InputManager.asset").FirstOrDefault();
                     IList<string> axes = new List<string>();
@@ -42,11 +43,20 @@ namespace EditorStronglyTyped
 
                         foreach (string axe in axes)
                         {
-                            Helper.WriteFileLine(streamWriter, axe);
+                            Helper.WriteFilePropertyLine(streamWriter, axe);
                         }
                     }
                     
-                    Helper.WriteFileFooter(streamWriter);
+                    Helper.WriteCloseFileClass(streamWriter);
+
+                    Helper.WriteFileEnum(streamWriter, $"{nameof(Axes)}Enum");
+                    for (int i = 0; i < axes.Count; i++)
+                    {
+                        Helper.WriteFileEnumLine(streamWriter, axes[i], i);
+                    }
+                    Helper.WriteCloseFileEnum(streamWriter);
+
+                    Helper.WriteCloseFileNamespace(streamWriter);
                 }
 
                 bool areFilesDifferent = true;

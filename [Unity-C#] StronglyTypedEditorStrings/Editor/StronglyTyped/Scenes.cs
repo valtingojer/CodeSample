@@ -36,17 +36,29 @@ namespace EditorStronglyTyped
                         "// https://docs.unity3d.com/Manual/BuildSettings.html\n",
                     };
                     Helper.WriteFileIntro(MethodBase.GetCurrentMethod(), streamWriter, extraLines);
-                    Helper.WriteFileHeader(streamWriter, FullQualifiedNamespace(), nameof(Scenes));
+                    Helper.WriteFileNamespace(streamWriter, FullQualifiedNamespace(), nameof(Scenes));
+                    Helper.WriteFileClass(streamWriter, nameof(Scenes));
 
                     foreach (var scene in EditorBuildSettings.scenes)
                     {
                         string sceneName = Path.GetFileNameWithoutExtension(scene.path);
-                        Helper.WriteFileLine(streamWriter, sceneName);
-                        if (SceneUtility.GetBuildIndexByScenePath(scene.path) >= 0)
-                            Helper.WriteFileIntLine(streamWriter, $"{sceneName}Int", SceneUtility.GetBuildIndexByScenePath(scene.path));
+                        Helper.WriteFilePropertyLine(streamWriter, sceneName);
+                        Helper.WriteFileIntLine(streamWriter, $"{sceneName}Int", SceneUtility.GetBuildIndexByScenePath(scene.path));
                     }
 
-                    Helper.WriteFileFooter(streamWriter);
+                    Helper.WriteCloseFileClass(streamWriter);
+
+                    Helper.WriteFileEnum(streamWriter, $"{nameof(Scenes)}Enum");
+                    foreach (var scene in EditorBuildSettings.scenes)
+                    {
+                        string sceneName = Path.GetFileNameWithoutExtension(scene.path);
+                        Helper.WriteFileEnumLine(streamWriter, sceneName, SceneUtility.GetBuildIndexByScenePath(scene.path));
+                    }
+                    Helper.WriteCloseFileEnum(streamWriter);
+
+
+
+                    Helper.WriteCloseFileNamespace(streamWriter);
                 }
 
                 bool areFilesDifferent = true;

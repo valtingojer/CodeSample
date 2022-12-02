@@ -63,19 +63,37 @@ namespace EditorStronglyTyped
                 }
             }
         }
-        public static void WriteFileHeader(StreamWriter streamWriter, string fullQualifiedNamespace, string className)
+        public static void WriteFileNamespace(StreamWriter streamWriter, string fullQualifiedNamespace, string className)
         {
             streamWriter.WriteLine($"namespace {fullQualifiedNamespace}");
             streamWriter.WriteLine("{");
+        }
+        public static void WriteFileClass(StreamWriter streamWriter, string className)
+        {
             streamWriter.WriteLine($"\tpublic static class {className}");
             streamWriter.WriteLine("\t{");
         }
-        public static void WriteFileFooter(StreamWriter streamWriter)
+
+        public static void WriteFileEnum(StreamWriter streamWriter, string enumName)
+        {
+            streamWriter.WriteLine($"\n\tpublic enum {enumName} : int");
+            streamWriter.WriteLine("\t{");
+        }
+
+        public static void WriteCloseFileEnum(StreamWriter streamWriter)
         {
             streamWriter.WriteLine("\t}");
+        }
+
+        public static void WriteCloseFileClass(StreamWriter streamWriter)
+        {
+            streamWriter.WriteLine("\t}");
+        }
+        public static void WriteCloseFileNamespace(StreamWriter streamWriter)
+        {
             streamWriter.WriteLine("}");
         }
-        public static void WriteFileLine(StreamWriter streamWriter, string tag)
+        public static void WriteFilePropertyLine(StreamWriter streamWriter, string tag)
         {
             streamWriter.WriteLine($"\n\t\t/// <summary>");
             streamWriter.WriteLine($"\t\t/// Name of '{tag}' as string");
@@ -88,6 +106,10 @@ namespace EditorStronglyTyped
             streamWriter.WriteLine($"\t\t\t\treturn \"{tag}\";");
             streamWriter.WriteLine("\t\t\t}");
             streamWriter.WriteLine("\t\t}");
+        }
+        public static void WriteFileEnumLine(StreamWriter streamWriter, string tag, int index)
+        {
+            streamWriter.WriteLine($"\t\t{Helper.StringToVariableName(tag)} = {index},");
         }
         public static void WriteFileIntLine(StreamWriter streamWriter, string tag, int value)
         {
