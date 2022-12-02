@@ -2,11 +2,11 @@
 
 This packages generates static properties for the most used string features in unity
 
-- [x] Axes (string only)
-- [x] Layers (string and variant LayerInt with its integer value)
-- [x] Scenes (string and variant LayerInt with its integer value)
-- [x] SortingLayers (string and variant LayerInt with its integer value)
-- [x] Tags (string only)
+- [x] Axes (string, enum string = for loop index)
+- [x] Layers (string and variant LayerInt, enum string = LayerInt)
+- [x] Scenes (string and variant SceneInt, enum string = SceneInt)
+- [x] SortingLayers (string and variant LayerInt, enum string = SortLayerInt)
+- [x] Tags (string, enum string = for loop index)
 
 The code generation occurs at UnityEditor.Callbacks.DidReloadScripts
 
@@ -17,8 +17,11 @@ Also it creates a custom menu called StronglyTyped, where you can force the gene
 - [x] Properties are generated as static and get only
 - Axes.your_axis
 - Layers.your_layer
+- Layers.your_layerInt
 - Scenes.your_scene
+- Scenes.your_sceneInt
 - SortingLayers.your_sorting_layer
+- SortingLayers.your_sorting_layerInt
 - Tags.your_tag
 - [x] Enums are generated as well
 - AxesEnum.your_axis
