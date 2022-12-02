@@ -3,8 +3,8 @@
 This packages generates static properties for the most used string features in unity
 
 - [x] Axes (string only)
-- [x] Layers (string and variant LayerInt with it integer value)
-- [x] Scenes (string and variant LayerInt with it integer value)
+- [x] Layers (string and variant LayerInt with its integer value)
+- [x] Scenes (string and variant LayerInt with its integer value)
 - [x] SortingLayers (string and variant LayerInt with it integer value)
 - [x] Tags (string only)
 
